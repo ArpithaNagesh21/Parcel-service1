@@ -7,6 +7,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Cloning repository..."
+                rm -rf Parcel-service1
                 git clone https://github.com/ArpithaNagesh21/Parcel-service1.git
                  ''' 
             }
