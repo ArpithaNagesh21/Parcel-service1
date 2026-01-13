@@ -1,35 +1,28 @@
 pipeline {
     agent any
 
-    environment {
-        JAVA_HOME = tool name: 'JDK11'  // Ensure JDK 11 is configured in Jenkins
-        PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-    }
-
     stages {
 
         stage('Checkout') {
             steps {
+                sh '''
                 echo "Cloning repository..."
-                git url: 'https://github.com/ArpithaNagesh21/Parcel-service1.git', branch: 'feature1'
+                git clone https://github.com/ArpithaNagesh21/Parcel-service1.git
+                 ''' 
             }
         }
 
         stage('Build & Test') {
             steps {
-                echo "Building and testing the project..."
-                sh 'mvn clean install'
+                sh '''
+                sudo apt update
+                sudo apt install -y maven
+                export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+                echo $JAVA_HOME
+                export PATH=$JAVA_HOME/bin:$PATH
+                '''
             }
         }
 
-    }
-
-    post {
-        success {
-            echo '✅ Build and test completed successfully.'
-        }
-        failure {
-            echo '❌ Build failed. Check the logs.'
-        }
     }
 }
