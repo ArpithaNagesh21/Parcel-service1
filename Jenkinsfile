@@ -23,6 +23,15 @@ pipeline {
                 '''
             }
         }
-
+      stage ('Deploy') {
+          steps {
+              sh '''
+              mvn clean install
+              mvn spring-boot:run
+              '''
     }
 }
+    }
+}
+
+  
