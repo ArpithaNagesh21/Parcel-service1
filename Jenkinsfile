@@ -1,5 +1,5 @@
 pipeline {
-    agent agent { label 'artifactory' }
+    agent { label 'artifactory' }
 
     stages {
 
