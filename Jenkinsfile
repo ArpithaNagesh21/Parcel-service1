@@ -26,7 +26,8 @@ pipeline {
           steps {
               sh '''
               mvn clean install
-              mvn spring-boot:run
+              whoami
+              // mvn spring-boot:run
               '''
     }
 }
