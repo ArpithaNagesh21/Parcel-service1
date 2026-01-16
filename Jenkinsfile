@@ -33,7 +33,7 @@ pipeline {
               
               mvn clean install
               whoami
-              // mvn spring-boot:run
+             
               '''
     }
 }
