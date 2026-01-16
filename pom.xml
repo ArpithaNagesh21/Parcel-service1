@@ -12,6 +12,17 @@
         <java.version>11</java.version>
         <spring.boot.version>2.5.4</spring.boot.version>
     </properties>
+         <distributionManagement>
+  <repository>
+    <id>artifactory-releases</id>
+    <url>https://http://3.237.175.81:8081/artifactory/libs-release-local</url>
+  </repository>
+
+  <snapshotRepository>
+    <id>artifactory-snapshots</id>
+    <url>https://http://3.237.175.81:8081/artifactory/libs-snapshot-local</url>
+  </snapshotRepository>
+</distributionManagement>
 
     <dependencies>
         <dependency>
